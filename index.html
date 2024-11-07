@@ -10,11 +10,11 @@
     <meta property="og:type" content="website">
     <link rel="icon" href="assets/video.svg"/>
     <title>ViBiDSampler</title>
-    <meta name="description" content="keyframe interpolation">
-    <meta name="keywords" content="keyframe interpolation, image-to-video diffusion model">
+    <meta name="description" content="vision-xl">
+    <meta name="keywords" content="vision-xl">
 
-    <meta content="ViBiDSampler" property="twitter:title" />
-    <meta content="ViBiDSampler" property="twitter:description" />
+    <meta content="vision-xl" property="twitter:title" />
+    <meta content="vision-xl" property="twitter:description" />
 
 
     <meta property="og:image" content="assets/teaser.jpg">
@@ -65,10 +65,10 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title" style="font-size: 44px;"><b>ViBiDSampler</b>: Enhancing Video Interpolation Using Bidirectional Diffusion Sampler</h1>
+                        <h1 class="title is-1 publication-title" style="font-size: 44px;">Additional visualizations of VISION XL</h1>
                         <div class="column has-text-centered">
                             <div class="publication-links">
-                                <span class="link-block">
+                                <!-- <span class="link-block">
                                   <a href=""
                                     class="external-link button is-normal is-rounded is-dark">
                                     <span class="icon">
@@ -76,7 +76,7 @@
                                     </span>
                                     <span>Code (Coming Soon)</span>
                                   </a>
-                                </span>
+                                </span> -->
                                 <!-- <span class="link-block">
                                     <a href="https://huggingface.co/spaces/fffiloni/svd_keyframe_interpolation" target="_blank" class="external-link button is-normal is-rounded is-dark">
                                         <span class="icon">
@@ -92,93 +92,6 @@
             </div>
         </div>
     </section>
-
-    <section class="hero teaser">
-    <div class="hero-body is-centered">
-      <div class="columns is-centered">
-        <div class="column is-centered is-full is-three-quarters-widescreen">
-        <video id="teaser" autoplay muted playsinline loop style="display: block; margin: auto;">
-          <source src="assets/teaser.mp4" type="video/mp4">
-        </video>
-          <h2 class="caption is-size-5 subtitle has-text-centered">
-          Keyframe interpolation result using our <b>ViBiDSampler</b> (25-frames 1024x576).
-          </h2>
-        </div>
-      </div>
-    </div>
-  </section>
-    <hr>
-
-    <section class="section">
-        <div class="container is-max-desktop">
-            <h2 class="title is-2 is-centered has-text-centered">Abstract</h2>
-                <div class="">
-                    Recent advancements in text-to-video (T2V) and image-to-video (I2V) diffusion models have improved video generation, particularly for keyframe interpolation. 
-                    However, adapting current I2V models for two-frame conditioning (start & end) remains challenging, often leading to artifacts and <b>off-manifold</b> issues. 
-                    We introduce a novel <b>bidirectional sampling strategy</b> that sequentially samples along forward and backward paths without extensive re-noising or model fine-tuning, 
-                    ensuring more coherent and <b>on-manifold</b> generation of intermediate frames.
-                    Advanced guidance techniques, CFG++ and DDS, are also employed to enhance interpolation.
-                </div>
-
-                <table style="width: 80%; margin-left:auto; margin-right:auto; text-align: center; 
-                margin-top:20px; margin-bottom:20px; background-color: rgb(245, 242, 237);" border="3" cellpadding="3">
-                  <tbody>
-                    <tr>
-                      <td style="width: 30%; font-size: 22px;"></td>
-                      <td style="width: 50%; font-size: 22px;"><strong>Ours &#128513; </strong></td>
-                    </tr>
-                    <tr>
-                      <td style="width: 30%; font-size: 20px; vertical-align:middle;">High-quality interpolation</td>
-                      <td style="width: 50%; font-size: 20px; vertical-align:middle;">Generating high-quality videos <br> between keyframes.</td>
-                    </tr>
-                    <tr>
-                      <td style="width: 30%; font-size: 20px; vertical-align:middle;">Computational effieciency</td>
-                      <td style="width: 50%; font-size: 20px; vertical-align:middle;">Not requiring extensive re-noising <br> or model fine-tuning.</td>
-                    </tr>
-                    <tr>
-                      <td style="width: 30%; font-size: 20px; vertical-align:middle;">Accessibility</td>
-                      <td style="width: 50%; font-size: 20px; vertical-align:middle;">Using open-sourced diffusion model (SVD).</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <div class="">
-                    By integrating these, our method achieves state-of-the-art performance, efficiently generating high-quality, smooth videos between keyframes.      
-                    On a single 3090 GPU, our method can interpolate 25 frames at 1024x576 resolution in just 195 seconds, establishing it as a leading solution for keyframe interpolation.        
-                </div>
-         </div>
-    </section>
-    <hr>
-
-    <section class="section">
-        <div class="container is-max-desktop">
-            <h2 class="title is-2 is-centered has-text-centered">Method</h2>
-                <div class="hero is-full">
-                    <div class="results-single">
-                        <img src="assets/fig_method.jpg" style="max-width: 90%; height: auto; display: block; margin: 0 auto;">
-                    </div>
-                </div>
-                <div class="">
-                    Comparison of denoising processes between (a) Time Reversal Fusion method and (b) <b>bidirectional sampling (Ours)</b>. 
-                    Our key innovation lies in the sequential sampling of the temporal forward path and the temporal backward path by integrating a single re-noising step between them.
-                </div>
-            <h2 class="title is-3 is-centered has-text-centered" style="margin-top: 30px;">On-manifold sampling</h2>
-                <div class="hero is-full">
-                    <div class="results-single">
-                        <img src="assets/fig_manifold.jpg" style="max-width: 90%; height: auto; display: block; margin: 0 auto;">
-                    </div>
-                </div>
-                <div class="">
-                    In the geometric view of diffusion models, the sampling process is typically described as iterative transitions moving from the noisy manifold to the clean manifold.
-                    From this perspective, (a) fusing two intermediate sample points through linear interpolation on a noisy manifold can lead to an undesirable <b>off-manifold issue</b>,
-                    where the generated samples deviate from the learned data distribution.
-                    (b) <b>Bidirectional sampling</b> effectively addresses this issue by sequentially sampling both the temporal forward and backward paths, with a single re-noising step in between. 
-                    This approach enables <b>on-manifold sampling</b>, ensuring that the generated samples stay close to the learned data distribution.
-                </div>
-        </div>
-    </section>
-    <hr>
-   
 
     <section id="results1" class="section">
         <div class="container">
